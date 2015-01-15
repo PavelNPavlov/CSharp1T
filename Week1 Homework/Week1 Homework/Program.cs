@@ -11,7 +11,7 @@ using System;
 
 
 
-namespace Week1_Homework
+namespace HelloCSharp
 {
     class Program
     {
