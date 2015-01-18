@@ -21,7 +21,7 @@ namespace Problem_04
                 Console.WriteLine("with: {0}, height: {1}, perimeter: {2}, area: {3} ", width, height, primeter, area);
                 Console.WriteLine("\n\nIf you wish to repeat press y ");
                 run = Console.ReadLine();
-            }
+            }// Повторение на програмата
         }
     }
 }

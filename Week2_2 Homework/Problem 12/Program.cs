@@ -24,7 +24,7 @@ namespace Problem_12
                 Console.WriteLine("Bit #{0} of the number {1} is: " + result, position, number);
                 Console.WriteLine("\nIf you wish to repeat press y ");
                 run = Console.ReadLine();
-            }
+            }// Повторение на програмата
         }
     }
 }

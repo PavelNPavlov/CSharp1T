@@ -17,7 +17,7 @@ namespace Problem_01
                 Console.WriteLine("Is integer {0} even? {1}", number, (number % 2 == 0));
                 Console.WriteLine("If you wish to repeat press y ");
                 run=Console.ReadLine();
-            }
+            }// Повторение на програмата
         }
     }
 }

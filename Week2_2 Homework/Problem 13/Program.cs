@@ -23,7 +23,7 @@ namespace Problem_13
                 Console.WriteLine("Is bit #{0} of the number {1} 1?\n" + (result == 1), position, number);
                 Console.WriteLine("\nIf you wish to repeat press y ");
                 run = Console.ReadLine();
-            }
+            }// Повторение на програмата
         }
     }
 }

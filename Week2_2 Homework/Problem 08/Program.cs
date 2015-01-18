@@ -25,10 +25,10 @@ namespace Problem_08
                     Console.WriteLine(number+" is prime "+(count==0));
                 }
                 else
-                    Console.WriteLine(number + " not a prime");
+                Console.WriteLine(number + " not a prime");
                 Console.WriteLine("If you wish to repeat press y ");
                 run = Console.ReadLine();
-            }
+            }// Повторение на програмата
         }
     }
 }

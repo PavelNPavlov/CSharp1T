@@ -26,10 +26,10 @@ namespace Problem_06
                     input = Console.ReadLine();
                 }
                 int numberInput = int.Parse(input);
-                int a = numberInput / 1000;
-                int b = numberInput%1000/100;
-                int c = numberInput%100/10;
-                int d = numberInput%10;
+                int a = numberInput / 1000; //хилядни
+                int b = numberInput%1000/100;//стотици
+                int c = numberInput%100/10;//десетки
+                int d = numberInput%10;//единиц
                 if (d != 0)
                 {
                     int digitSum = a + b + c + d;
@@ -46,7 +46,7 @@ namespace Problem_06
 
                 Console.WriteLine("\n\nIf you wish to repeat press y ");
                 run = Console.ReadLine();
-            }
+            }// Повторение на програмата
         }
     }
 }

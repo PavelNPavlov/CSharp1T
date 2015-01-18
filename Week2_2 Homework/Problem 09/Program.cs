@@ -25,7 +25,7 @@ namespace Problem_09
                 Console.WriteLine("Trapezoid with base {0} and {1} and a height {2} has an area of: {3}", a,b,h,area);
                 Console.WriteLine("\n\nIf you wish to repeat press y ");
                 run = Console.ReadLine();
-            }
+            }// Повторение на програмата
         }
     }
 }

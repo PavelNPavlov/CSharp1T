@@ -32,14 +32,11 @@ namespace Problem_10
                 double width = 6;
                 double height = 2;
 
-                bool isOutR = (xpoint >= cornerX && xpoint <= cornerX + width && ypoint >= cornerY -height && ypoint <= cornerY);
+                bool isOutR = (xpoint >= cornerX && xpoint <= cornerX + width && ypoint >= cornerY -height && ypoint <= cornerY); //по лесно е да се направи проверка за във кръга за това избираме да се гледа за стойност false
                 Console.WriteLine(isIntK==true && isOutR==false);
-                //Console.WriteLine(isOutR); Console.WriteLine(isIntK);
-                //Console.WriteLine(xpoint <= cornerX || xpoint >= cornerX + width);
-                //Console.WriteLine(ypoint <= cornerY - height || ypoint >= cornerY);
                 Console.WriteLine("If you wish to repeat press y ");
                 run = Console.ReadLine();
-            }
+            }// Повторение на програмата
         }
     }
 }

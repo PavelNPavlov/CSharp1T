@@ -17,19 +17,20 @@ namespace Problem_07
                 double xpoint = double.Parse(Console.ReadLine());
                 Console.Write("Input y coordinate: ");
                 double ypoint = double.Parse(Console.ReadLine());
+                //Описание на круга
                 double xcenter = 0;
                 double ycenter = 0;
                 double rcircle=2;
-
+                //Дистанция по осите межди център и точка
                 double xdistance = Math.Abs(xcenter - xpoint);
                 double ydistance = Math.Abs(ycenter - ypoint);
-
+                //ако разтоянието е по голямо е извън кръга
                 bool isInCircle = (Math.Pow(rcircle, 2) >= (Math.Pow(xdistance, 2) + Math.Pow(ydistance, 2)));
 
                 Console.WriteLine("Is pot with coordinate [{0},{1}] in a circle with center [{2},{3}] and a radius {4}?\n" + isInCircle, xpoint, ypoint, xcenter, ycenter, rcircle);
                 Console.WriteLine("If you wish to repeat press y ");
                 run = Console.ReadLine();
-            }
+            }// Повторение на програмата
         }
     }
 }

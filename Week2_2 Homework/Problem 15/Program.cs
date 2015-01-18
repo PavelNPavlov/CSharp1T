@@ -20,18 +20,14 @@ namespace Problem_15
                 //Console.WriteLine("Input bit value");
                 //int bitvalue = int.Parse(Console.ReadLine());
 
-                uint bitsSequenceLow = (number >> 3) & 7;
+                uint bitsSequenceLow = (number >> 3) & 7; //взимане на поредицата от 3 бита 7(10)=111(2)
                 uint bitsSequenceHigh = (number >> 24) & 7;
-                //Console.WriteLine(bitsSequenceHigh);
-                //Console.WriteLine(bitsSequenceLow);
-                uint bitsSequenceTemp = bitsSequenceHigh;
                 uint result;
-                Console.WriteLine(bitsSequenceLow + " " + bitsSequenceHigh+bitsSequenceTemp+"\n");
-                result = (number >> 3) & 7 ^ bitsSequenceTemp;
-                result = number ^ (result << 3);
-                uint temp = result;
+                result = (number >> 3) & 7 ^ bitsSequenceHigh;
+                result = number ^ (result << 3); //първа промяна
+                uint temp = result;// ненужно но добро за проверка
                 result = (temp >> 24) & 7 ^ bitsSequenceLow;
-                result = (temp ^ (result << 24));
+                result = (temp ^ (result << 24)); //втора промяна
 
 
                 

@@ -13,8 +13,8 @@ namespace Problem_04
         static void Main()
         {
             string symbol="\u00A2";
-            Console.OutputEncoding = System.Text.Encoding.Unicode;
-            Console.WriteLine(symbol); // За да излезе правилно от properties на конзолата се избира Consolas font
+            Console.OutputEncoding = System.Text.Encoding.Unicode;// За да излезе правилно от properties на конзолата се избира Consolas font
+            Console.WriteLine(symbol); 
             
         }
     }

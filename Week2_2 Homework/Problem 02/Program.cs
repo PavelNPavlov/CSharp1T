@@ -19,7 +19,7 @@ namespace Problem_02
                 Console.WriteLine("The same object in the Moon will weight: "+moonWeight);
                 Console.WriteLine("\n\nIf you wish to repeat press y ");
                 run = Console.ReadLine();
-            }
+            }// Повторение на програмата
         }
     }
 }

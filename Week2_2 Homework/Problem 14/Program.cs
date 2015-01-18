@@ -22,7 +22,7 @@ namespace Problem_14
 
 
                 int result = (number>>position)&1 ^ bitvalue;
-                result = number ^ (result << position);
+                result = number ^ (result << position); // смяна на стойността на определен бит
                 Console.WriteLine(result);
                 //Console.WriteLine("Is bit #{0} of the number {1} 1?\n" + (result == 1), position, number);
                 Console.WriteLine("\nIf you wish to repeat press y ");

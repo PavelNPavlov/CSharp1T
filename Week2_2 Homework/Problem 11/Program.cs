@@ -15,11 +15,11 @@ namespace Problem_11
             while (run == "y")
             {
                 int number = int.Parse(Console.ReadLine());
-                int result= number>>3 & 1;
+                int result= number>>3 & 1; //3 позиции надясно, и §1 подсигурява че има само един символ
                 Console.WriteLine("For n={0} bit #3= "+ result, number);
                 Console.WriteLine("\nIf you wish to repeat press y ");
                 run = Console.ReadLine();
             }
-        }
+        }// Повторение на програмата
     }
 }
