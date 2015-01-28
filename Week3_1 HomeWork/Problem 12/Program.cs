@@ -27,7 +27,7 @@ struct Position2
         this.col = col;
         this.symIndex = symIndex;
     }
-}//Position of a point;
+}//Position of a rock;
 
 namespace GameTest2
 {
@@ -37,7 +37,9 @@ namespace GameTest2
         static void Main(string[] args)
         {
         Start:
-            char[] rocks = { '^', '*', '&', '+', '-', ',', '.' };
+            Console.WriteLine("Choose difficulty level 1-5");
+            int level = 7 - int.Parse(Console.ReadLine());
+            char[] rocks = { '^', '*', '&', '+', '-', '.', '.' };
             int left = -1;
             int right = 1;
             int still = 0;
@@ -72,6 +74,7 @@ namespace GameTest2
 
             while (true)
             {
+                Console.Title = "Dwarf";
                 Console.SetCursorPosition(50, 1);
                 Console.Write("Help me get to Princes Pretty");
                 Console.SetCursorPosition(50, 5);
@@ -164,15 +167,18 @@ namespace GameTest2
                 for (int i = 0; i < dwarf.Count; i++)
                 {
                     if (obstacles.Exists(x => x.col == dwarf[i].col && x.row == 28)) 
-                    { lives--;
-                    if (lives == 0) { goto GameResult; } 
+                    { 
+                        lives--;
+                        if (lives == 0) { goto GameResult; } 
                     }
                 }
 
                 foreach (Position position in dwarf)
                 {
                     Console.SetCursorPosition(position.col, position.row);
-                    Console.ForegroundColor = ConsoleColor.White;
+                    if (lives == 3) { Console.ForegroundColor = ConsoleColor.Green; }
+                    if (lives == 2) { Console.ForegroundColor = ConsoleColor.Yellow; }
+                    if (lives == 1) { Console.ForegroundColor = ConsoleColor.Red; }
                     Console.Write("0");
                 }
 
@@ -181,7 +187,7 @@ namespace GameTest2
                 //drill.RemoveAll(x => x.row == 0);
                 move = still;
                 skipLine++;
-                Thread.Sleep(50);
+                Thread.Sleep(level*50);
                 Console.Clear();
                 points--;
                 if(points==0){goto Win;}
@@ -196,7 +202,7 @@ namespace GameTest2
             goto End;
         Win:
             Console.Clear();
-
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("I found the princess!!!");
             Console.WriteLine("          WWWWW           ");
             Console.WriteLine("         ((. .))          ");
