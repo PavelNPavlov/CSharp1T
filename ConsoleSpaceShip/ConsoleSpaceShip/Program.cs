@@ -10,19 +10,21 @@ namespace ConsoleSpaceShip
 {
     public class Alien
     {
+        //class variables
         public int xpos;
         public int ypos;
         public int lives;
         public int reloadTime;
         public int reloadTimer;
 
+        //default constructor construct empty object
         public Alien()
         {
             xpos = 0;
             ypos = 0;
             lives = 0;
         }
-
+        //normal constructor
         public Alien(int x,int y, int l, int r)
         {
             xpos =x;
@@ -32,12 +34,13 @@ namespace ConsoleSpaceShip
             reloadTimer = r;
             reloadTime = rng.Next(0, r);
         }
+        //general print function
         public void Print()
         {
             Console.SetCursorPosition(xpos, ypos);
             Console.Write("#");
         }
-
+        //being hit by projectile
         public void Hit(Projectile x)
         {
             if(x.xpos==this.xpos&&x.ypos==this.ypos)
@@ -45,7 +48,7 @@ namespace ConsoleSpaceShip
                 this.lives = this.lives - 1;
             }
         }
-
+        //hit detected by all projectiles in play
         public int Hit_All(List<Projectile> j)
         {
             if (j.Exists(x => x.xpos == this.xpos && x.ypos == this.ypos && x.direction==-1) && lives==1)
@@ -58,7 +61,7 @@ namespace ConsoleSpaceShip
             }
             return -1;
         }
-
+        //create a prijectile
         public Projectile Fire()
         {
             if(this.reloadTime==this.reloadTimer)
@@ -70,7 +73,7 @@ namespace ConsoleSpaceShip
                 return new Projectile(-1, -1, 1);
             }
         }
-
+        //time progress to account for reaload time
         public void ProgressTime()
         {
             if (this.reloadTime > this.reloadTimer) { this.reloadTime = 0; }
@@ -80,6 +83,7 @@ namespace ConsoleSpaceShip
 
     public class Projectile
     {
+        //class variables
         public int xpos;
         public int ypos;
         public int direction;
@@ -90,19 +94,19 @@ namespace ConsoleSpaceShip
             xpos = 0;
             ypos = 0;
             direction = 1;
-        }
+        }//default constructor
 
         public Projectile(int x, int y, int d)
         {
             xpos = x;
             ypos = y;
             direction = d;
-        }
+        }//proper constructor
         public void Print()
         {
                 Console.SetCursorPosition(xpos, ypos);
                 Console.Write("o");
-        }
+        }// print single missile
 
 
         public void PrintMissAlien(List<Alien> a)
@@ -110,15 +114,15 @@ namespace ConsoleSpaceShip
             if(a.Exists(x=> x.xpos==this.xpos && x.ypos==this.ypos)==false)
             {
                 Console.SetCursorPosition(xpos, ypos);
-                if (this.direction == 1) { Console.Write("o"); }
-                if (this.direction == -1) { Console.Write("+"); }
+                if (this.direction == 1) { Console.Write("o"); } //going down meaning alien projectiles
+                if (this.direction == -1) { Console.Write("+"); } //going up meansing player projectile
             }
-        }
+        }//print all projectiles
 
         public void TimeProgress()
         {
             ypos = this.ypos + this.direction;
-        }
+        }//time progress or move in given direction
     }
 
     public class Hero
@@ -126,13 +130,13 @@ namespace ConsoleSpaceShip
         public int xpos;
         public int ypos;
         public int lives;
-
+        //class variables
         public Hero()
         {
             this.xpos = 18;
             this.ypos = 20;
             this.lives = 3;
-        }
+        }//only default constructor middle ish of the field
 
         public void Print()
         {
@@ -143,7 +147,7 @@ namespace ConsoleSpaceShip
             Console.Write("@");
 
             Console.ForegroundColor = ConsoleColor.White;
-        }
+        } //print hero symbol
 
         public void Move(int move)
         {
@@ -151,12 +155,12 @@ namespace ConsoleSpaceShip
             if (move == -1) { ypos=ypos+1; }
             if (move == 2) { xpos =xpos -1*3; }
             if (move == -2) { xpos =xpos +1*3; }
-        }
+        }//move method, change location of hero
 
         public Projectile Fire()
         {
             return new Projectile(xpos, ypos - 1, -1);
-        }
+        }//fire projectile going upwards
 
         public void Hit (List<Projectile> j)
         {
@@ -164,7 +168,7 @@ namespace ConsoleSpaceShip
             {
                 lives--;
             }
-        }
+        }//hit detect
     }
 
     class ConsoleGame
@@ -172,7 +176,7 @@ namespace ConsoleSpaceShip
         static int Main()
         {
         Beging:
-
+            //opening credits
             Console.WriteLine("Aliens have attack the plante Earth");
             Console.WriteLine("Their Fleet is position in high Earth Orbit");
             Console.WriteLine("You are the pilot of prototype craft that we believe is the key for victory");
@@ -209,9 +213,10 @@ namespace ConsoleSpaceShip
             {
                 a.Print();
             }
-            //Projectiles created
+            //Projectiles list created
             List<Projectile> bullets= new List<Projectile>();
             int count = 0;
+            //Set up lives counter on screen
             Console.SetCursorPosition(Console.BufferWidth - 10, 2);
             Console.Write("Lives: {0}/3", you.lives);
             Runing:
@@ -259,7 +264,7 @@ namespace ConsoleSpaceShip
                 {
                     Console.SetCursorPosition(Console.BufferWidth - 10, 2);
                     Console.Write("Lives: {0}/3", you.lives);
-                }
+                }//lives counter
                 if (you.lives == 0) { goto GameOver; }
                 you.Print();
                 //Alien time progression
@@ -281,13 +286,13 @@ namespace ConsoleSpaceShip
                 {
                     b.TimeProgress();
                 }
-
+                //hit detect
                 foreach (Alien a in swarm)
                 {
                     int temp= a.Hit_All(bullets);
                     if (temp > -1) { bullets.RemoveAt(temp); }
                 }
-
+                //get rid of bullets stuck in positions that do not get wiped
                 for (int kk = 0; kk < numberLines; kk++ )
                 {
                     for(int kkk=0; kkk< Console.BufferWidth-10; kkk++)
@@ -311,6 +316,8 @@ namespace ConsoleSpaceShip
                 if (swarm.Count == 0) { goto Win; }
             }
             
+
+            //gaame endings
             GameOver:
             Console.SetCursorPosition(10,20);
             Console.ForegroundColor=ConsoleColor.Red;
