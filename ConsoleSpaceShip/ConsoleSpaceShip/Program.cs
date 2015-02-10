@@ -184,7 +184,8 @@ namespace ConsoleSpaceShip
             //hero creation
             Hero you = new Hero();
             //console setup
-            Console.BufferHeight = Console.WindowHeight;
+            Console.BufferHeight = Console.WindowHeight = 25;
+            Console.BufferWidth = Console.WindowWidth =80;
             //creat swarm
             List<Alien> swarm = new List<Alien>();
             Random rng= new Random();
