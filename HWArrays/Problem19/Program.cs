@@ -22,13 +22,9 @@ namespace Problem19
                 }
                 
 
-                foreach (IEnumerable<int> value in pertub)
+                for(int i=0; i<data.Count; i++)
                 {
-                    foreach(int a in value)
-                    {
-                        Console.Write(a + " ");
-                    }
-                    Console.WriteLine();
+
                 }
 
 

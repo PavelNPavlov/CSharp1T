@@ -312,7 +312,7 @@ namespace ConsoleSpaceShip
                 swarm.RemoveAll(x => x.lives == 0);
                 count++;
 
-                Thread.Sleep(100);
+                Thread.Sleep(50);
                 if (swarm.Count == 0) { goto Win; }
             }
             
