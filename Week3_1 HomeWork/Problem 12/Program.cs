@@ -44,7 +44,7 @@ namespace GameTest2
             int right = 1;
             int still = 0;
             int move = 0;
-            int points = 300;
+            int points = 10;
             int skipLine=1;
             int numberPerLine = 1;
             int lives = 3;

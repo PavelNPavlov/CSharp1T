@@ -228,7 +228,7 @@ namespace EscapeAlinesTest
                     {
                         c.Move(-1, 0, matrix);
                     }
-                    if (userInput.Key == ConsoleKey.DownArrow && c.x < Console.BufferHeight-1)
+                    if (userInput.Key == ConsoleKey.DownArrow && c.x < Console.BufferHeight-6)
                     {
                         c.Move(1, 0, matrix);
                     }

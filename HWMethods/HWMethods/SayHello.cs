@@ -4,13 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HWMultyArray
+namespace HWMethods
 {
-    class Program
+    class SayHello
     {
         static void Main(string[] args)
         {
+            SayHello("Peter");
+        }
 
+        static void SayHello(string name)
+        {
+            Console.WriteLine("Hello, {0}!", name);
         }
     }
 }
